@@ -1,6 +1,8 @@
+using sipiyo.Services;
 using Sipiyo.Models;
 using Sipiyo.Repository;
 using Sipiyo.Services;
+using Sipiyo.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,7 @@ builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IDrinkService, DrinkService>();
+builder.Services.AddTransient<ITokenService, TokenService>();
 
 var app = builder.Build();
 
@@ -27,8 +30,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-
 app.MapControllerRoute(
+
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
 
