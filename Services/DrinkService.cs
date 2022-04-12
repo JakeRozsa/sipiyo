@@ -3,7 +3,8 @@ using Sipiyo.Repository;
 
 namespace Sipiyo.Services {
 
-public class DrinkService{
+public class DrinkService : IDrinkService
+{
     private readonly IDrinkRepository repo;
     public DrinkService(IDrinkRepository repository)
     {

@@ -12,6 +12,7 @@ builder.Services.AddTransient<IMongoDBContext, MongoDBContext>();
 builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IDrinkService, DrinkService>();
 
 var app = builder.Build();
 
