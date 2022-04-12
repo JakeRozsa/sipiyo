@@ -1,8 +1,17 @@
+using Sipiyo.Models;
+using Sipiyo.Repository;
+using Sipiyo.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
+builder.Services.AddTransient<IMongoDBContext, MongoDBContext>();
+builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IUserService, UserService>();
 
 var app = builder.Build();
 
