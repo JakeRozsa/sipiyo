@@ -1,15 +1,15 @@
 using Sipiyo.Services;
 using Microsoft.AspNetCore.Mvc;
+using sipiyo.Controllers;
 
 namespace Sipiyo.Controller
 {
-    public class DrinkController : ControllerBase
+    public class DrinksController : BaseApiController
     {
         private readonly IDrinkService Service;
-        public DrinkController(IDrinkService service) {
+        public DrinksController(IDrinkService service) {
             Service = service ?? throw new ArgumentNullException(nameof(service));
         }
-        [Route("api/Drinks")]
         public async Task<IActionResult> GetDrinksAsync()
         {
             var drinks = await Service.GetDrinksAsync();
