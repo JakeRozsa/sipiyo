@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddCors();
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
 builder.Services.AddTransient<IMongoDBContext, MongoDBContext>();
 builder.Services.AddTransient<IDrinkRepository, DrinkRepository>();
@@ -26,7 +27,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
