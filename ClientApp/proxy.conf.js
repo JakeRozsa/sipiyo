@@ -8,7 +8,7 @@ const PROXY_CONFIG = [
     context: [
       "/weatherforecast",
    ],
-    target: target,
+    target: "http://localhost:3000",
     secure: false,
     headers: {
       Connection: 'Keep-Alive'
