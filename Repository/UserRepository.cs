@@ -10,8 +10,19 @@ namespace Sipiyo.Repository
         {
             userCollection = context.GetCollection<User>("User");
         }
+
+        public async Task AddUser(User user)
+        {
+            await userCollection.InsertOneAsync(user);
+        }
+
         public async Task<List<User>> GetUsers(){
             return await userCollection.Find(_=>true).ToListAsync();
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await userCollection.Find(x => x.Email == email).FirstOrDefaultAsync();
         }
     }
 }
