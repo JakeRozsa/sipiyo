@@ -34,6 +34,8 @@ namespace Sipiyo.Controller
             var user = new User
             {
                 Email = registerDto.Email,
+                FirstName = registerDto.FirstName,
+                LastName = registerDto.LastName,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt = hmac.Key
             };
@@ -41,7 +43,7 @@ namespace Sipiyo.Controller
 
             return new UserDto
             {
-                Email = user.Email,
+                FirstName = user.FirstName,
                 Token = TokenService.CreateToken(user)
             };
         }
@@ -65,7 +67,7 @@ namespace Sipiyo.Controller
 
             return new UserDto
             {
-                Email = user.Email,
+                FirstName = user.FirstName,
                 Token = TokenService.CreateToken(user)
             };
         }
