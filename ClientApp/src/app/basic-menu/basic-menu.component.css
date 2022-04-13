@@ -1,0 +1,24 @@
+.menu-box{
+    border: solid;
+    border-color: rgb(169, 1, 1);
+    border-radius: 5px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.menu-title{
+    text-align: center;
+    color: rgb(169, 0, 0);
+    font-weight: 500;
+    font-size: x-large;
+}
+.list-horizontal {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+  }
+.mat-list-item{
+    text-align: center;  
+  }

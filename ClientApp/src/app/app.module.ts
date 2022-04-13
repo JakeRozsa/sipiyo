@@ -12,6 +12,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { HomeBannerComponent } from './home-banner/home-banner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { BasicMenuComponent } from './basic-menu/basic-menu.component';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { MatSliderModule } from '@angular/material/slider';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    HomeBannerComponent
+    HomeBannerComponent,
+    BasicMenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     MatSliderModule,
+    MatGridListModule,
+    MatListModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
