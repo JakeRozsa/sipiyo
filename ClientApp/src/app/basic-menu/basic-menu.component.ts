@@ -1,4 +1,7 @@
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
+import { isObservable } from 'rxjs';
+import { Drink } from '../models/drink';
 import { DrinkService } from '../_services/drink.service';
 
 @Component({
@@ -8,16 +11,39 @@ import { DrinkService } from '../_services/drink.service';
 })
 export class BasicMenuComponent implements OnInit {
   drinks: any = [];
-  sodaBases: any = [];
+  sodas: any= [];
 
   constructor(private drinkService: DrinkService) {
-    this.drinkService.getAllDrinks().subscribe((drinks) =>{
+  
+  }
+  
+  ngOnInit(): void {
+    this.getAllDrinks();
+    
+  }
+  getAllDrinks() {
+    this.drinkService.getAllDrinks().subscribe(drinks =>{
       this.drinks = drinks;
       console.log(drinks);
+      this.getSodaBaseFromDrinks();
     })
-   }
-
-  ngOnInit(): void {
-  }
-
 }
+  getSodaBaseFromDrinks(){
+    
+    var sodaArray: any = [];
+    for (let index = 0; index < this.drinks.length; index++) {
+      const element : string = this.drinks[index].sodaBase;
+      console.log("Element: " + element);
+      if(!sodaArray.includes(element)){
+        console.log(sodaArray.includes(element))
+        sodaArray.push(element)
+        console.log("Sodas: " + sodaArray)
+      }else {
+      }
+    }
+    this.sodas = sodaArray;
+    console.log(sodaArray);
+    
+    }
+ }
+

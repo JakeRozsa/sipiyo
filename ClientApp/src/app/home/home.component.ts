@@ -9,9 +9,9 @@ export class HomeComponent {
   drinks: any = [];
 
   constructor(private drinkService: DrinkService) {
-    this.drinkService.getAllDrinks().subscribe((drinks) => {
-      this.drinks = drinks;
-      console.log(drinks);
-    });
+    // this.drinkService.getAllDrinks().subscribe((drinks) => {
+    //   this.drinks = drinks;
+    //   console.log(drinks);
+    // });
   }
 }
