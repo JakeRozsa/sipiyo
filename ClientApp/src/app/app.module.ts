@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { HomeBannerComponent } from './home-banner/home-banner.component';
+import { BasicMenuComponent } from './basic-menu/basic-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavComponent } from './nav/nav.component';
@@ -23,6 +24,7 @@ import { MaterialModule } from './material/material.module';
     CounterComponent,
     FetchDataComponent,
     HomeBannerComponent,
+    BasicMenuComponent,
     NavComponent,
     LoginFormComponent,
     RegisterFormComponent,
