@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { LoginFormComponent } from '../auth/login-form/login-form.component';
 import { RegisterFormComponent } from '../auth/register-form/register-form.component';
+import { User } from '../models/user';
+import { AccountService } from '../_services/account.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,9 +12,12 @@ import { RegisterFormComponent } from '../auth/register-form/register-form.compo
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
-  model: any = {};
+  currentUser$: Observable<User>;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    public accountService: AccountService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -30,6 +36,6 @@ export class NavComponent implements OnInit {
   }
 
   logout() {
-    // this.accountService.logout();
+    this.accountService.logout();
   }
 }

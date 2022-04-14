@@ -2,11 +2,22 @@
   <div>
     <p routerLink="/">Sipyo</p>
   </div>
-  <!-- <div *ngIf="(accountService.currentUser$ | async) as user" class="logged-in">
-        <p>{{user.username}}</p>
-        <button mat-raised-button type="submit" color="accent" aria-label="Logout" (click)="logout()">Logout</button>
-    </div> -->
-  <div class="auth-group">
+  <div *ngIf="accountService.currentUser$ | async as user" class="logged-in">
+    <p class="firstName">{{ user.firstName }}</p>
+    <button
+      mat-raised-button
+      type="submit"
+      color="accent"
+      aria-label="Logout"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </div>
+  <div
+    class="auth-group"
+    *ngIf="(accountService.currentUser$ | async) === null"
+  >
     <button
       mat-raised-button
       type="submit"
