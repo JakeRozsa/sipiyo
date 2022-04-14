@@ -10,5 +10,7 @@ namespace Sipiyo.Models
         public string Name {get; set;}  = null!;
         public List<string> SodaBase {get; set;}  = null!;
         public List<string> AddIns  {get; set;} = null!;
+        public Boolean Caffeinated {get; set;}
+        public Boolean EnergyDrink {get; set;}
     }
 }
