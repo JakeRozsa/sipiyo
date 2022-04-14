@@ -1,4 +1,5 @@
 import { CloseScrollStrategy } from '@angular/cdk/overlay';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, OnInit } from '@angular/core';
 import { isObservable } from 'rxjs';
 import { Drink } from '../models/drink';
@@ -43,7 +44,6 @@ export class BasicMenuComponent implements OnInit {
     }
     this.sodas = sodaArray;
     console.log(sodaArray);
-    
-    }
+  }
  }
 
