@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginFormComponent } from '../auth/login-form/login-form.component';
 import { RegisterFormComponent } from '../auth/register-form/register-form.component';
@@ -16,7 +17,8 @@ export class NavComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    public accountService: AccountService
+    public accountService: AccountService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -37,5 +39,6 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    this.router.navigate(['/']);
   }
 }

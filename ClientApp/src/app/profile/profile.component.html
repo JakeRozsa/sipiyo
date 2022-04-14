@@ -1,0 +1,6 @@
+<div *ngIf="accountService.currentUser$ | async as user">
+  <h1>First name: {{ user.firstName }}</h1>
+  <h1>Last name: {{ user.lastName }}</h1>
+  <h1>Email: {{ user.email }}</h1>
+  <p>My drinks:</p>
+</div>

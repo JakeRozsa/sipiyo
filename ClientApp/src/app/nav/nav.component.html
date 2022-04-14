@@ -1,9 +1,12 @@
 <mat-toolbar color="primary" class="navbar">
   <div>
-    <p routerLink="/">Sipyo</p>
+    <p class="logo" routerLink="/">Sipyo</p>
   </div>
   <div *ngIf="accountService.currentUser$ | async as user" class="logged-in">
-    <p class="firstName">{{ user.firstName }}</p>
+    <!-- <p class="firstName">{{ user.firstName }}</p> -->
+    <div routerLink="/profile" class="profile-circle">
+      {{ user.firstName.substring(0, 1) }}
+    </div>
     <button
       mat-raised-button
       type="submit"

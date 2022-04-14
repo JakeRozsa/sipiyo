@@ -1,35 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { HomeBannerComponent } from './home-banner/home-banner.component';
 import { BasicMenuComponent } from './basic-menu/basic-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {BasicMenuComponent } from './basic-menu/basic-menu.component'
-
 
 import { NavComponent } from './nav/nav.component';
 import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { RegisterFormComponent } from './auth/register-form/register-form.component';
 import { MaterialModule } from './material/material.module';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     HomeBannerComponent,
     BasicMenuComponent,
     NavComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    NotFoundComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -37,14 +37,19 @@ import { MaterialModule } from './material/material.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'profile', component: ProfileComponent, pathMatch: 'full' },
+      { path: 'not-found', component: NotFoundComponent, pathMatch: 'full' },
     ]),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
