@@ -1,1 +1,44 @@
-<p>login-form works!</p>
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="login()"
+  class="login-form"
+  autocomplete="off"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>Email Address</mat-label>
+    <input formControlName="email" matInput placeholder="Email Address" />
+    <mat-error *ngIf="loginForm.get('email').hasError('required')"
+      >Email is required</mat-error
+    >
+    <mat-error *ngIf="loginForm.get('email').hasError('email')"
+      >Email must be in a valid email format</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input formControlName="password" matInput required type="password" />
+    <mat-error *ngIf="loginForm.get('password').hasError('required')"
+      >Password is required</mat-error
+    >
+    <mat-error *ngIf="loginForm.get('password').hasError('minlength')"
+      >Password must be at least 4 characters</mat-error
+    >
+    <mat-error *ngIf="loginForm.get('password').hasError('maxlength')"
+      >Password must be at most 12 characters</mat-error
+    >
+  </mat-form-field>
+  <div class="buttons-container">
+    <button
+      [disabled]="loginForm.invalid"
+      mat-raised-button
+      type="submit"
+      color="primary"
+      aria-label="Login"
+    >
+      Login
+    </button>
+    <button mat-raised-button [mat-dialog-close]="true" color="warn">
+      Cancel
+    </button>
+  </div>
+</form>

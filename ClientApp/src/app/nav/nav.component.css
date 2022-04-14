@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.firstName {
+  margin-top: 10px;
+}
+
 form > * {
   margin-right: 1rem;
 }
