@@ -29,6 +29,10 @@ namespace Sipiyo.Controller
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            var userExists = await Service.GetUserByEmail(registerDto.Email);
+
+            if (userExists != null) return Unauthorized("That email is taken");
+
             using var hmac = new HMACSHA512();
 
             var user = new User
@@ -44,6 +48,8 @@ namespace Sipiyo.Controller
             return new UserDto
             {
                 FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
                 Token = TokenService.CreateToken(user)
             };
         }
@@ -68,6 +74,8 @@ namespace Sipiyo.Controller
             return new UserDto
             {
                 FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
                 Token = TokenService.CreateToken(user)
             };
         }
