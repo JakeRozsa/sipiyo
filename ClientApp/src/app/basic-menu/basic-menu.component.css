@@ -1,6 +1,6 @@
 .menu-box{
     border: solid;
-    border-color: rgb(169, 1, 1);
+    border-color: #e81b00;
     border-radius: 5px;
     max-width: 80%;
     margin-left: auto;
@@ -9,7 +9,7 @@
 }
 .menu-title{
     text-align: center;
-    color: rgb(169, 0, 0);
+    color: #e81b00;
     font-weight: 500;
     font-size: x-large;
 }

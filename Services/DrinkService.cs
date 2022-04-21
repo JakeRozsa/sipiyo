@@ -15,5 +15,15 @@ public class DrinkService : IDrinkService
     {
         return await repo.GetDrinks();
     }
+
+    public Task<Drink> GetDrinkByName(string name)
+    {
+        return repo.GetDrinkByName(name);
+    }
+    public Task<List<Drink>> GetCaffeinatedDrinks()
+    {
+List<Sipiyo.Models.Drink> allDrinks = repo.GetDrinks();
+
+    }
 }
 }

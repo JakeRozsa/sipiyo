@@ -16,5 +16,10 @@ namespace Sipiyo.Repository
         {
             return await drinkCollection.Find(_=> true).ToListAsync();
         }
+
+        public Task<Drink> GetDrinkByName(string name)
+        {
+            return drinkCollection.Find(x => x.Name == name).FirstOrDefaultAsync();
+        }
     }
 }

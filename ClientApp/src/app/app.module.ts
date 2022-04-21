@@ -17,6 +17,7 @@ import { NavComponent } from './nav/nav.component';
 import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { RegisterFormComponent } from './auth/register-form/register-form.component';
 import { MaterialModule } from './material/material.module';
+import { DrinkComponent } from './drink/drink.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MaterialModule } from './material/material.module';
     NavComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    DrinkComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

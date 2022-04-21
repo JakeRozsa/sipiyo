@@ -2,7 +2,16 @@
     <h3 class="menu-title">MENU</h3>
     <mat-nav-list class="list-horizontal">
         <mat-list-item *ngFor="let soda of sodas">
-            <h4>{{soda}}</h4>
+            <p >{{soda}}</p>
         </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list class="list-horizontal">
+        <mat-list-item *ngFor="let filteredDrink of filteredDrinks">
+            <button>{{filteredDrink.name}}</button>
+            <div *ngFor="let addIn of filteredDrink">{{addIn}}</div>
+        </mat-list-item>
+    </mat-nav-list>
+    <mat-nav-list>
+        <app-drink ></app-drink>
     </mat-nav-list>
 </div>

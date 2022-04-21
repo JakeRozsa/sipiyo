@@ -15,5 +15,11 @@ namespace Sipiyo.Controller
             var drinks = await Service.GetDrinksAsync();
             return Ok(drinks);
         }
+[HttpGet("{name}")]
+        public async Task<IActionResult> GetDrinkByNameAsync(string name)
+        {
+            var drink = await Service.GetDrinkByName(name);
+            return Ok(drink);
+        }
     }
 }
